@@ -66,7 +66,7 @@
                          <div class="wow fadeInUp" data-wow-delay="0.4s">
                               <p>Join me on this artistic journey as we explore the beauty of lines, shapes, and colors.
                               </p>
-                              <a href="#">meonsketch@gmail.com</a>
+                              <a href="mailto:meonsketch@gmail.com">meonsketch@gmail.com</a>
                          </div>
                     </div>
 
@@ -215,12 +215,12 @@
                          </div>
                     </div>
 
-                    <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="0.6s">
-                         <h4>Let's Collab</h4>
-                         <form class="newsletter" action="#" method="get">
-                              <input name="email" type="email" class="form-control" id="emailInput"
-                                   placeholder="Your Email Address">
-                              <button name="submit" onclick="shareViaEmail()" value="sign-up" class='form-control'>Connect</button>
+                   <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="0.6s">
+                         <h4>Share</h4>
+                         <form class="newsletter" action="" method="">
+                              <p>Share with Your loved Ones, Who need Our help</p>
+                              <button name="submit" onclick="shareOnSocialMedia('WhatsApp')" value="share" class='form-control'>Share
+                                   <i class="fa fa-whatsapp"></i></button>
                          </form>
                     </div>
 
@@ -249,19 +249,18 @@
      <script>
           
 
-           function shareViaEmail() {
-        // Get the current URL and page title
-        var currentUrl = encodeURIComponent(window.location.href);
-        var pageTitle = encodeURIComponent(document.title);
+         function shareOnSocialMedia(platform) {
+               // Get the current URL
+               var currentUrl = encodeURIComponent(window.location.href);
 
-        var inputValue = encodeURIComponent(document.getElementById('emailInput').value);
+               // Define the social media sharing URLs
+               var socialMediaUrls = {
+                    'WhatsApp': 'https://api.whatsapp.com/send?text='
+               };
 
-        // Create the email sharing link
-        var emailLink = 'mailto:?subject=' + pageTitle + '&body=' + encodeURIComponent('Check out this page: ' + document.title +'.in '+ ' - ' + window.location.href + '%0D%0A%0D%0AAdditional message: ' + inputValue);
-
-        // Open the default email client
-        window.location.href = emailLink;
-    }
+               // Open a new window or redirect to the social media sharing page
+               window.open(socialMediaUrls[platform] + currentUrl, '_blank');
+          }
      </script>
      <script src="js/jquery.js"></script>
      <script src="js/bootstrap.min.js"></script>
